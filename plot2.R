@@ -14,10 +14,8 @@ if (!file.exists(localFile)) {
   download.file(fileUrl, destfile = localFile ,method="curl");
 }
 
-#unzip if not already unzipped
-if (!file.exists(dataDir)) {
-  unzip(localFile,exdir='./data')  
-}
+#unzip 
+unzip(localFile,exdir='./data')  
 
 #read csv as data-frame
 powerConsumption <- read.csv(file.path(dataDir,"household_power_consumption.txt"),header = TRUE,sep=";",na.strings ="?",stringsAsFactors=FALSE)
